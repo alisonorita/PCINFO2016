@@ -1,0 +1,8 @@
+/home/geral/Público/clion-2016.3/bin/cmake/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread
+-- Configuring done
+CMake Error at CMakeLists.txt:6 (add_executable):
+  CXX_STANDARD is set to invalid value ' -std=c++11 -pthread'
+
+
+-- Generating done
+-- Build files have been written to: /home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread/cmake-build-debug

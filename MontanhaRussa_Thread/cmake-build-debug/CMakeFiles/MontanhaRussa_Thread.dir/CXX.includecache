@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread/main.cpp
+stdio.h
+-
+stdlib.h
+-
+semaphore.h
+-
+pthread.h
+-
+

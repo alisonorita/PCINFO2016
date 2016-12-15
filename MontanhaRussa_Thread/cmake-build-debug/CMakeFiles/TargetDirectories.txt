@@ -1,0 +1,3 @@
+/home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread/cmake-build-debug/CMakeFiles/MontanhaRussa_Thread.dir
