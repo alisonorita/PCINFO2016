@@ -68,7 +68,7 @@ void *passageiro (void* tID) {
 }
 
 void *carrinho (void *) {
-    while (nPassRestante) {
+    while ((nPassRestante+nPassCarrinho) > 0) {
         sem_wait(&sCarrinho);
 
         pthread_mutex_lock(&mutex);
