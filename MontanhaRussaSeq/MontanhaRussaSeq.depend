@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1481857618 source:c:\users\game\desktop\montanharussaseq\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
