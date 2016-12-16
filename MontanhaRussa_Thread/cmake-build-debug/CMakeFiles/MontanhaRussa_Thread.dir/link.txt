@@ -1,1 +1,1 @@
-/usr/bin/c++   -g   CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.o  -o MontanhaRussa_Thread -lpthread 
+/usr/bin/cc  -g   CMakeFiles/MontanhaRussa_Thread.dir/main.c.o  -o MontanhaRussa_Thread -lpthread 

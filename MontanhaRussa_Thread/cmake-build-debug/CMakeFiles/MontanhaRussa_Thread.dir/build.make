@@ -57,41 +57,41 @@ include CMakeFiles/MontanhaRussa_Thread.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/MontanhaRussa_Thread.dir/flags.make
 
-CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.o: CMakeFiles/MontanhaRussa_Thread.dir/flags.make
-CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.o -c /home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread/main.cpp
+CMakeFiles/MontanhaRussa_Thread.dir/main.c.o: CMakeFiles/MontanhaRussa_Thread.dir/flags.make
+CMakeFiles/MontanhaRussa_Thread.dir/main.c.o: ../main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/MontanhaRussa_Thread.dir/main.c.o"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/MontanhaRussa_Thread.dir/main.c.o   -c /home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread/main.c
 
-CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread/main.cpp > CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.i
+CMakeFiles/MontanhaRussa_Thread.dir/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MontanhaRussa_Thread.dir/main.c.i"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread/main.c > CMakeFiles/MontanhaRussa_Thread.dir/main.c.i
 
-CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread/main.cpp -o CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.s
+CMakeFiles/MontanhaRussa_Thread.dir/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MontanhaRussa_Thread.dir/main.c.s"
+	/usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread/main.c -o CMakeFiles/MontanhaRussa_Thread.dir/main.c.s
 
-CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.o.requires:
+CMakeFiles/MontanhaRussa_Thread.dir/main.c.o.requires:
 
-.PHONY : CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.o.requires
+.PHONY : CMakeFiles/MontanhaRussa_Thread.dir/main.c.o.requires
 
-CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.o.provides: CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.o.requires
-	$(MAKE) -f CMakeFiles/MontanhaRussa_Thread.dir/build.make CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.o.provides.build
-.PHONY : CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.o.provides
+CMakeFiles/MontanhaRussa_Thread.dir/main.c.o.provides: CMakeFiles/MontanhaRussa_Thread.dir/main.c.o.requires
+	$(MAKE) -f CMakeFiles/MontanhaRussa_Thread.dir/build.make CMakeFiles/MontanhaRussa_Thread.dir/main.c.o.provides.build
+.PHONY : CMakeFiles/MontanhaRussa_Thread.dir/main.c.o.provides
 
-CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.o.provides.build: CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.o
+CMakeFiles/MontanhaRussa_Thread.dir/main.c.o.provides.build: CMakeFiles/MontanhaRussa_Thread.dir/main.c.o
 
 
 # Object files for target MontanhaRussa_Thread
 MontanhaRussa_Thread_OBJECTS = \
-"CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.o"
+"CMakeFiles/MontanhaRussa_Thread.dir/main.c.o"
 
 # External object files for target MontanhaRussa_Thread
 MontanhaRussa_Thread_EXTERNAL_OBJECTS =
 
-MontanhaRussa_Thread: CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.o
+MontanhaRussa_Thread: CMakeFiles/MontanhaRussa_Thread.dir/main.c.o
 MontanhaRussa_Thread: CMakeFiles/MontanhaRussa_Thread.dir/build.make
 MontanhaRussa_Thread: CMakeFiles/MontanhaRussa_Thread.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable MontanhaRussa_Thread"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable MontanhaRussa_Thread"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MontanhaRussa_Thread.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -99,7 +99,7 @@ CMakeFiles/MontanhaRussa_Thread.dir/build: MontanhaRussa_Thread
 
 .PHONY : CMakeFiles/MontanhaRussa_Thread.dir/build
 
-CMakeFiles/MontanhaRussa_Thread.dir/requires: CMakeFiles/MontanhaRussa_Thread.dir/main.cpp.o.requires
+CMakeFiles/MontanhaRussa_Thread.dir/requires: CMakeFiles/MontanhaRussa_Thread.dir/main.c.o.requires
 
 .PHONY : CMakeFiles/MontanhaRussa_Thread.dir/requires
 

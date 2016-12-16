@@ -84,7 +84,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread/main.cpp">
+		<Unit filename="/home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread/main.c">
 			<Option target="MontanhaRussa_Thread"/>
 		</Unit>
 		<Unit filename="/home/geral/ClionProjects/PCINFO2016/MontanhaRussa_Thread/CMakeLists.txt">

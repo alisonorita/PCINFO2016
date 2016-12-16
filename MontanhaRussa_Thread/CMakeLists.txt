@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.6)
 project(MontanhaRussa_Thread)
 set(CMAKE_CXX_STANDARD "${CMAKE_CXX_FLAGS} -std=c++11 -pthread")
-set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES main.c)
 find_package(Threads)
 add_executable(MontanhaRussa_Thread ${SOURCE_FILES})
 target_link_libraries(MontanhaRussa_Thread ${CMAKE_THREAD_LIBS_INIT})
