@@ -156,37 +156,36 @@ int main(int argc, char* argv[]) {
 
 
     do {
-                printf("Numero de passageiros: ");
-                scanf("%i", &numeroPassageiros);
-
-
+       printf("Numero de passageiros: ");
+       scanf("%i", &numeroPassageiros);
     } while (numeroPassageiros <= 0);
 
         for(i=0;i<numeroPassageiros;i++){
             insere(FILA);
         }
-do {
-                printf("Numero de passageiros por carro: ");
-                scanf("%i", &carroCapacidade);
+    do {
+       printf("Numero de passageiros por carrinho: ");
+       scanf("%i", &carroCapacidade);
     } while (carroCapacidade <= 0);
 
     while(FILA->prox!= NULL){
     for(j=0;j<carroCapacidade;j++){
-        printf("Passageiro %i entrando no carrinho\n",j );
+        printf("Passageiro entrando no carrinho\n",j );
         tmp= retira(FILA);
         if(FILA->prox == NULL){
                 break;
+        }
+		pause(0.5);
     }
-    }
-    printf("\nCarrinho partindo para a aventura \o/\n");
-    pause(4);
-    printf("ahhhh mas ja acabou :(\n");
+
+    printf("\nCarrinho partindo...\n\n");
+    
+    printf("Carrinho retornou\n\n");
     if(FILA->prox == NULL){
-            printf("\nCabo a galera... Vamo fica pobre T-T\n");
+            printf("\nNao ha mais passageiros!\n\n");
         break;
     }
-    pause(4);
-    printf("\nOto povo entra\n");
+    printf("\nPassageiros entrando...\n\n");
 
     }
 
