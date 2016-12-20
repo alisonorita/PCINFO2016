@@ -51,6 +51,10 @@ vazia:
 	.section	.rodata
 .LC0:
 	.string	"Sem memoria disponivel!"
+.LC1:
+	.string	"Passageiro "
+.LC2:
+	.string	"%d"
 	.text
 	.globl	aloca
 	.type	aloca, @function
@@ -73,6 +77,14 @@ aloca:
 	movl	$1, %edi
 	call	exit
 .L6:
+	movl	$.LC1, %edi
+	movl	$0, %eax
+	call	printf
+	movq	-8(%rbp), %rax
+	movq	%rax, %rsi
+	movl	$.LC2, %edi
+	movl	$0, %eax
+	call	__isoc99_scanf
 	movq	-8(%rbp), %rax
 	leave
 	.cfi_def_cfa 7, 8
@@ -135,7 +147,7 @@ insere:
 .LFE5:
 	.size	insere, .-insere
 	.section	.rodata
-.LC1:
+.LC3:
 	.string	"Fila ja esta vazia"
 	.text
 	.globl	retira
@@ -154,7 +166,7 @@ retira:
 	movq	8(%rax), %rax
 	testq	%rax, %rax
 	jne	.L14
-	movl	$.LC1, %edi
+	movl	$.LC3, %edi
 	call	puts
 	movl	$0, %eax
 	jmp	.L15
@@ -219,19 +231,19 @@ libera:
 .LFE7:
 	.size	libera, .-libera
 	.section	.rodata
-.LC2:
-	.string	"Fila vazia!\n"
-.LC3:
-	.string	"Fila :"
 .LC4:
-	.string	"%5d"
+	.string	"Fila vazia!\n"
 .LC5:
-	.string	"\n        "
+	.string	"Fila :"
 .LC6:
-	.string	"  ^  "
+	.string	"%5d"
 .LC7:
-	.string	"\nOrdem:"
+	.string	"\n        "
 .LC8:
+	.string	"  ^  "
+.LC9:
+	.string	"\nOrdem:"
+.LC10:
 	.string	"\n"
 	.text
 	.globl	exibe
@@ -251,14 +263,14 @@ exibe:
 	call	vazia
 	testl	%eax, %eax
 	je	.L22
-	movl	$.LC2, %edi
+	movl	$.LC4, %edi
 	call	puts
 	jmp	.L21
 .L22:
 	movq	-24(%rbp), %rax
 	movq	8(%rax), %rax
 	movq	%rax, -8(%rbp)
-	movl	$.LC3, %edi
+	movl	$.LC5, %edi
 	movl	$0, %eax
 	call	printf
 	jmp	.L24
@@ -266,7 +278,7 @@ exibe:
 	movq	-8(%rbp), %rax
 	movl	(%rax), %eax
 	movl	%eax, %esi
-	movl	$.LC4, %edi
+	movl	$.LC6, %edi
 	movl	$0, %eax
 	call	printf
 	movq	-8(%rbp), %rax
@@ -275,13 +287,13 @@ exibe:
 .L24:
 	cmpq	$0, -8(%rbp)
 	jne	.L25
-	movl	$.LC5, %edi
+	movl	$.LC7, %edi
 	movl	$0, %eax
 	call	printf
 	movl	$0, -12(%rbp)
 	jmp	.L26
 .L27:
-	movl	$.LC6, %edi
+	movl	$.LC8, %edi
 	movl	$0, %eax
 	call	printf
 	addl	$1, -12(%rbp)
@@ -289,7 +301,7 @@ exibe:
 	movl	tam(%rip), %eax
 	cmpl	%eax, -12(%rbp)
 	jl	.L27
-	movl	$.LC7, %edi
+	movl	$.LC9, %edi
 	movl	$0, %eax
 	call	printf
 	movl	$0, -12(%rbp)
@@ -298,7 +310,7 @@ exibe:
 	movl	-12(%rbp), %eax
 	addl	$1, %eax
 	movl	%eax, %esi
-	movl	$.LC4, %edi
+	movl	$.LC6, %edi
 	movl	$0, %eax
 	call	printf
 	addl	$1, -12(%rbp)
@@ -306,7 +318,7 @@ exibe:
 	movl	tam(%rip), %eax
 	cmpl	%eax, -12(%rbp)
 	jl	.L29
-	movl	$.LC8, %edi
+	movl	$.LC10, %edi
 	call	puts
 .L21:
 	leave
@@ -328,7 +340,7 @@ pause:
 	subq	$32, %rsp
 	movss	%xmm0, -20(%rbp)
 	cvtss2sd	-20(%rbp), %xmm0
-	movsd	.LC9(%rip), %xmm1
+	movsd	.LC11(%rip), %xmm1
 	ucomisd	%xmm0, %xmm1
 	ja	.L36
 	pxor	%xmm0, %xmm0
@@ -338,7 +350,7 @@ pause:
 	call	clock
 	pxor	%xmm0, %xmm0
 	cvtsi2ssq	%rax, %xmm0
-	movss	.LC11(%rip), %xmm1
+	movss	.LC13(%rip), %xmm1
 	divss	%xmm1, %xmm0
 	movss	%xmm0, -4(%rbp)
 	jmp	.L34
@@ -346,7 +358,7 @@ pause:
 	call	clock
 	pxor	%xmm0, %xmm0
 	cvtsi2ssq	%rax, %xmm0
-	movss	.LC11(%rip), %xmm1
+	movss	.LC13(%rip), %xmm1
 	divss	%xmm1, %xmm0
 	movss	%xmm0, -8(%rbp)
 .L34:
@@ -367,23 +379,23 @@ pause:
 .LFE9:
 	.size	pause, .-pause
 	.section	.rodata
-.LC12:
+.LC15:
 	.string	"Numero de passageiros: "
-.LC13:
+.LC16:
 	.string	"%i"
 	.align 8
-.LC14:
+.LC17:
 	.string	"Numero de passageiros por carrinho: "
 	.align 8
-.LC15:
-	.string	"Passageiro entrando no carrinho\n"
-.LC16:
-	.string	"\nCarrinho partindo...\n"
-.LC17:
-	.string	"Carrinho retornou\n"
 .LC18:
-	.string	"\nNao ha mais passageiros!\n"
+	.string	"Passageiro entrando no carrinho\n"
 .LC19:
+	.string	"\nCarrinho partindo...\n"
+.LC20:
+	.string	"Carrinho retornou\n"
+.LC21:
+	.string	"\nNao ha mais passageiros!\n"
+.LC22:
 	.string	"\nPassageiros entrando...\n"
 	.text
 	.globl	main
@@ -415,13 +427,15 @@ main:
 	movq	-24(%rbp), %rax
 	movq	%rax, %rdi
 	call	inicia
+	movss	.LC14(%rip), %xmm0
+	call	pause
 .L39:
-	movl	$.LC12, %edi
+	movl	$.LC15, %edi
 	movl	$0, %eax
 	call	printf
 	leaq	-36(%rbp), %rax
 	movq	%rax, %rsi
-	movl	$.LC13, %edi
+	movl	$.LC16, %edi
 	movl	$0, %eax
 	call	__isoc99_scanf
 	movl	-36(%rbp), %eax
@@ -439,12 +453,12 @@ main:
 	cmpl	%eax, -32(%rbp)
 	jl	.L41
 .L42:
-	movl	$.LC14, %edi
+	movl	$.LC17, %edi
 	movl	$0, %eax
 	call	printf
 	leaq	-40(%rbp), %rax
 	movq	%rax, %rsi
-	movl	$.LC13, %edi
+	movl	$.LC16, %edi
 	movl	$0, %eax
 	call	__isoc99_scanf
 	movl	-40(%rbp), %eax
@@ -457,7 +471,7 @@ main:
 .L47:
 	movl	-28(%rbp), %eax
 	movl	%eax, %esi
-	movl	$.LC15, %edi
+	movl	$.LC18, %edi
 	movl	$0, %eax
 	call	printf
 	movq	-24(%rbp), %rax
@@ -477,19 +491,19 @@ main:
 .L53:
 	nop
 .L46:
-	movl	$.LC16, %edi
+	movl	$.LC19, %edi
 	call	puts
-	movl	$.LC17, %edi
+	movl	$.LC20, %edi
 	call	puts
 	movq	-24(%rbp), %rax
 	movq	8(%rax), %rax
 	testq	%rax, %rax
 	jne	.L48
-	movl	$.LC18, %edi
+	movl	$.LC21, %edi
 	call	puts
 	jmp	.L49
 .L48:
-	movl	$.LC19, %edi
+	movl	$.LC22, %edi
 	call	puts
 .L43:
 	movq	-24(%rbp), %rax
@@ -497,8 +511,6 @@ main:
 	testq	%rax, %rax
 	jne	.L50
 .L49:
-	movss	.LC20(%rip), %xmm0
-	call	pause
 	movl	$0, %eax
 	movq	-8(%rbp), %rdx
 	xorq	%fs:40, %rdx
@@ -513,14 +525,14 @@ main:
 	.size	main, .-main
 	.section	.rodata
 	.align 8
-.LC9:
+.LC11:
 	.long	3539053052
 	.long	1062232653
 	.align 4
-.LC11:
+.LC13:
 	.long	1232348160
 	.align 4
-.LC20:
-	.long	1056964608
+.LC14:
+	.long	1017370378
 	.ident	"GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.4) 5.4.0 20160609"
 	.section	.note.GNU-stack,"",@progbits

@@ -41,8 +41,8 @@ node *aloca()
 		printf("Sem memoria disponivel!\n");
 		exit(1);
 	}else{
-		//printf("Passageiro "); 
-		//scanf("%d", &novo->num);
+		printf("Passageiro "); 
+		scanf("%d", &novo->num);
 		return novo;
 	}
 }
@@ -153,8 +153,7 @@ int main(int argc, char* argv[]) {
     int carroCapacidade,numeroPassageiros;
     int i,k,j,h;
 
-
-
+	pause(0.02);
 
     do {
        printf("Numero de passageiros: ");
@@ -188,8 +187,8 @@ int main(int argc, char* argv[]) {
     printf("\nPassageiros entrando...\n\n");
 	
     }
-	pause(0.5);
+	
     return 0;
-     }
+    }
 }
 
