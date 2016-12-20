@@ -41,7 +41,8 @@ node *aloca()
 		printf("Sem memoria disponivel!\n");
 		exit(1);
 	}else{
-		printf("Passageiro "); scanf("%d", &novo->num);
+		//printf("Passageiro "); 
+		//scanf("%d", &novo->num);
 		return novo;
 	}
 }
@@ -174,8 +175,7 @@ int main(int argc, char* argv[]) {
         tmp= retira(FILA);
         if(FILA->prox == NULL){
                 break;
-        }
-		pause(0.5);
+        }		
     }
 
     printf("\nCarrinho partindo...\n\n");
@@ -186,9 +186,9 @@ int main(int argc, char* argv[]) {
         break;
     }
     printf("\nPassageiros entrando...\n\n");
-
+	
     }
-
+	pause(0.5);
     return 0;
      }
 }

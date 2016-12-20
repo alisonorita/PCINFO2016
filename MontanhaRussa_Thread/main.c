@@ -82,8 +82,6 @@ void *passageiro (void* tID) {
         sem_post(&sCarrinho);
 
     pthread_mutex_unlock(&mutex);
-
-	pause(0.5);
 }
 
 void *carrinho (void *vazio) {
@@ -126,6 +124,8 @@ int main () {
     pthread_exit(NULL);
 
     finalizar();
+
+	pause(0.5);
 
     return 0;
 }

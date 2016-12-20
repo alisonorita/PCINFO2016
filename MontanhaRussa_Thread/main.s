@@ -252,8 +252,6 @@ passageiro:
 .L15:
 	movl	$mutex, %edi
 	call	pthread_mutex_unlock
-	movss	.LC7(%rip), %xmm0
-	call	pause
 	nop
 	leave
 	.cfi_def_cfa 7, 8
@@ -262,12 +260,12 @@ passageiro:
 .LFE7:
 	.size	passageiro, .-passageiro
 	.section	.rodata
-.LC8:
+.LC7:
 	.string	"carrinho.passear()"
 	.align 8
-.LC9:
+.LC8:
 	.string	"passageiro[id:%d].descer() - thread: %d\n"
-.LC10:
+.LC9:
 	.string	"carrinho.esperando()\n"
 	.text
 	.globl	carrinho
@@ -288,7 +286,7 @@ carrinho:
 	call	sem_wait
 	movl	$mutex, %edi
 	call	pthread_mutex_lock
-	movl	$.LC8, %edi
+	movl	$.LC7, %edi
 	call	puts
 	movl	$1, -4(%rbp)
 	jmp	.L18
@@ -302,7 +300,7 @@ carrinho:
 	cltq
 	movl	listaPass(,%rax,4), %eax
 	movl	%eax, %esi
-	movl	$.LC9, %edi
+	movl	$.LC8, %edi
 	movl	$0, %eax
 	call	printf
 	addl	$1, -4(%rbp)
@@ -311,7 +309,7 @@ carrinho:
 	cmpl	%eax, -4(%rbp)
 	jle	.L19
 	movl	$0, nPassCarrinho(%rip)
-	movl	$.LC10, %edi
+	movl	$.LC9, %edi
 	call	puts
 	movl	$mutex, %edi
 	call	pthread_mutex_unlock
@@ -329,7 +327,7 @@ carrinho:
 .LFE8:
 	.size	carrinho, .-carrinho
 	.section	.rodata
-.LC11:
+.LC10:
 	.string	"Erro na criacao da thread!"
 	.text
 	.globl	main
@@ -367,7 +365,7 @@ main:
 	call	pthread_create
 	testl	%eax, %eax
 	je	.L23
-	movl	$.LC11, %edi
+	movl	$.LC10, %edi
 	movl	$0, %eax
 	call	printf
 .L23:
@@ -395,8 +393,5 @@ main:
 	.align 4
 .LC5:
 	.long	1232348160
-	.align 4
-.LC7:
-	.long	1056964608
 	.ident	"GCC: (Ubuntu 5.4.0-6ubuntu1~16.04.4) 5.4.0 20160609"
 	.section	.note.GNU-stack,"",@progbits

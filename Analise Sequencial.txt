@@ -1,28 +1,28 @@
 //SEQUENCIAL 1P, 2P, 4P
-real	0m0.001s
-user	0m0.000s
-sys		0m0.000s
+real	0m0.510s
+user	0m0.112s
+sys	0m0.396s
 
-real	0m0.502s
-user	0m0.088s
-sys		0m0.412s
+real	0m0.506s
+user	0m0.140s
+sys	0m0.364s
 
-real	0m1.501s
-user	0m0.356s
-sys		0m1.144s
+real	0m0.504s
+user	0m0.108s
+sys	0m0.396s
 
 //PARALELA 1P, 2P, 4P
-real	0m0.502s
-user	0m0.060s
-sys		0m0.440s
+real	0m0.025s
+user	0m0.004s
+sys	0m0.020s
 
-real	0m0.257s
-user	0m0.024s
-sys		0m0.480s
+real	0m0.024s
+user	0m0.000s
+sys	0m0.020s
 
-real	0m0.144s
-user	0m0.020s
-sys		0m0.492s
+real	0m0.022s
+user	0m0.012s
+sys	0m0.012s
 
 
 
