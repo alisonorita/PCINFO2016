@@ -1,0 +1,1 @@
+/usr/bin/cc  -g   CMakeFiles/MontanhaRussa_MPI.dir/main.c.o  -o MontanhaRussa_MPI /usr/local/lib/libmpichcxx.a /usr/local/lib/libmpich.a /usr/local/lib/libopa.a /usr/local/lib/libmpl.a /usr/lib/x86_64-linux-gnu/librt.so -lpthread 

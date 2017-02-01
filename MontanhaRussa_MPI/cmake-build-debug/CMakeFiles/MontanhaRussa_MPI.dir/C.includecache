@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/geral/ClionProjects/PCINFO2016/MontanhaRussa_MPI/main.c
+stdio.h
+/home/geral/ClionProjects/PCINFO2016/MontanhaRussa_MPI/stdio.h
+stdlib.h
+/home/geral/ClionProjects/PCINFO2016/MontanhaRussa_MPI/stdlib.h
+mpi.h
+/home/geral/ClionProjects/PCINFO2016/MontanhaRussa_MPI/mpi.h
+

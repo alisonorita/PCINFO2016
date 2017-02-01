@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.6)
+project(MontanhaRussa_MPI)
+set(CMAKE_CXX_STANDARD "${CMAKE_CXX_FLAGS} -std=c++11 -mpi")
+set(SOURCE_FILES main.c)
+find_package(MPI)
+add_executable(MontanhaRussa_MPI ${SOURCE_FILES})
+target_link_libraries(MontanhaRussa_MPI ${MPI_LIBRARIES})
