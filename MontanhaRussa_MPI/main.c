@@ -10,7 +10,11 @@ int size;
 MPI_Status status;
 
 void embarcarPass(int passID, int carrID) {
-	printf("Passageiro ID:%d embarcou no carrinho %d\n", passID, carrID);
+    if (passID != -1) {
+        printf("Passageiro ID:%d embarcou no carrinho %d\n", passID, carrID);
+    } else {
+        printf("Nao tem mais passageiros\n");
+    }
 }
 
 int getIDPassageiro() {
@@ -27,33 +31,30 @@ void controleCarr() {
 
     for (carrID=1; carrID<size; carrID++) {
         idPass = getIDPassageiro;
+        embarcarPass(idPass, carrID);
         MPI_Send(&idPass, 1, MPI_INT, carrID, 0, MPI_COMM_WORLD);
         passAtendido++;
+        sleep(1);
     }
 
 	while (carrFim < size - 1) {
         MPI_Recv(&nPass, 1, MPI_INT, MPI_ANY_SOURCE, 0, MPI_COMM_WORLD, &status);
 
-        /*
-        if ((nPass == CAP) || (nPass == N)) {
-            passAtendido += nPass;
-            printf("\nPassageiros atendidos: %d\n\n",passAtendido);
-        }
-        */
-
         if (passAtendido < N) {
             idPass = getIDPassageiro;
+            embarcarPass(idPass, status.MPI_SOURCE);
             MPI_Send(&idPass, 1, MPI_INT, status.MPI_SOURCE, 0, MPI_COMM_WORLD);
             passAtendido++;
+            sleep(1);
         } else {
             idPass = -1;
+            embarcarPass(idPass, status.MPI_SOURCE);
             MPI_Send(&idPass, 1, MPI_INT, status.MPI_SOURCE, 0, MPI_COMM_WORLD);
             carrFim++;
         }
 	}
 
-    printf("Acabou o passeio!");
-    MPI_Finalize();
+    printf("\nAcabou passageiros!\n");
 }
 
 void carrinho() {
@@ -62,18 +63,21 @@ void carrinho() {
 	while (1) {
 		MPI_Recv(&idPass, 1, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 
-		embarcarPass(idPass,rank);
-		nPassNoCarr++;
+		if (idPass == -1) {
+            printf("Carrinho %d realizou o passeio\n\n", rank);
+            break;
+        } else {
+            nPassNoCarr++;
 
-		if ((nPassNoCarr < CAP) && (nPassNoCarr != N) && (idPass != -1)) {
-			printf("Carrinho %d estah aguardando (%d/%d)\n", rank,nPassNoCarr,CAP);
-			MPI_Send(&nPassNoCarr, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
-		} else {
-			//tag 1 simboliza que o carrinho está cheio
-			printf("\nCarrinho %d realizou o passeio\n\n", rank);
-			MPI_Send(&nPassNoCarr, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
-            nPassNoCarr = 0;
-		}
+            if (nPassNoCarr < CAP) {
+                printf("Carrinho %d estah aguardando (%d/%d)\n", rank,nPassNoCarr,CAP);
+                MPI_Send(&nPassNoCarr, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
+            } else {
+                printf("Carrinho %d realizou o passeio\n\n", rank);
+                MPI_Send(&nPassNoCarr, 1, MPI_INT, 0, 0, MPI_COMM_WORLD);
+                nPassNoCarr = 0;
+            }
+        }
 	}
 }
 
@@ -87,6 +91,8 @@ void main(int argc, char* argv[]) {
 	} else {
 		carrinho();
 	}
+
+    MPI_Finalize();
 }
 	
 
