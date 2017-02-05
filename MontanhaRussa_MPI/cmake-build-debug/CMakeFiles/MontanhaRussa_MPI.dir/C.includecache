@@ -11,6 +11,8 @@ stdio.h
 /home/geral/ClionProjects/PCINFO2016/MontanhaRussa_MPI/stdio.h
 stdlib.h
 /home/geral/ClionProjects/PCINFO2016/MontanhaRussa_MPI/stdlib.h
+time.h
+/home/geral/ClionProjects/PCINFO2016/MontanhaRussa_MPI/time.h
 mpi.h
 /home/geral/ClionProjects/PCINFO2016/MontanhaRussa_MPI/mpi.h
 
