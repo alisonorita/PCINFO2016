@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+#define PASSEIO 100000
+
 struct Node{
 	int num;
 	struct Node *prox;
@@ -41,8 +44,9 @@ node *aloca()
 		printf("Sem memoria disponivel!\n");
 		exit(1);
 	}else{
-		printf("Passageiro "); 
-		scanf("%d", &novo->num);
+		//printf("Passageiro "); 
+		//scanf("%d", &novo->num);		
+		novo->num = 1;
 		return novo;
 	}
 }
@@ -137,6 +141,15 @@ void pause (float delay1) {
 
 }
 
+void realizarPasseio() {
+    int r = (rand() % 100) * PASSEIO;
+    int i;
+
+    for (i=1; i<r; i++) {
+        //
+    }
+}
+
 
 int main(int argc, char* argv[]) {
 	node *FILA = (node *) malloc(sizeof(node));
@@ -153,11 +166,10 @@ int main(int argc, char* argv[]) {
     int carroCapacidade,numeroPassageiros;
     int i,k,j,h;
 
-	pause(0.02);
-
     do {
        printf("Numero de passageiros: ");
-       scanf("%i", &numeroPassageiros);
+       //scanf("%i", &numeroPassageiros);
+	   numeroPassageiros = 100000;
     } while (numeroPassageiros <= 0);
 
         for(i=0;i<numeroPassageiros;i++){
@@ -165,7 +177,8 @@ int main(int argc, char* argv[]) {
         }
     do {
        printf("Numero de passageiros por carrinho: ");
-       scanf("%i", &carroCapacidade);
+       //scanf("%i", &carroCapacidade);
+	   carroCapacidade = 5;
     } while (carroCapacidade <= 0);
 
     while(FILA->prox!= NULL){
@@ -176,6 +189,8 @@ int main(int argc, char* argv[]) {
                 break;
         }		
     }
+
+	realizarPasseio();
 
     printf("\nCarrinho partindo...\n\n");
     

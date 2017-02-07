@@ -5,7 +5,7 @@
 
 #define N 100000
 #define CAP 5
-#define PASSEIO 10000
+#define PASSEIO 100000
 
 int rank;
 int size;
